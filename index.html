@@ -1,13 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>タスク所要時間見積もり</title>
   </head>
   <body>
-    <div id="app"></div>
+    <h1>タスク所要時間見積もり</h1>
+    <form class="form">
+      <label for="trialCount">試行回数:</label><br>
+      <input type="number" id="trialCount" value="10000" min="1" /><br>
+
+      <label for="mean">50%ile工数(ABP):</label><br>
+      <input type="number" id="mean" value="5" max="100" min="1" /><br>
+
+      <label for="hp">90%ile工数(HP):</label><br>
+      <input type="number" id="hp" value="10" max="100" min="1" /><br>
+
+      <label for="stdDev">標準偏差:</label></br>
+      <input type="number" id="stdDev" value="1" max="10" min="0" step="0.1" disabled /><br>
+
+      <button id="simulateButton">シミュレーション開始</button>
+  
+    </form>
+    <canvas id="chartCanvas" width="800" height="400"></canvas>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
